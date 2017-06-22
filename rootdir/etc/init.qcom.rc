@@ -464,13 +464,6 @@ service adsprpcd /system/bin/adsprpcd
     user media
     group media
 
-# Start AKM executable
-service ecompassd /system/bin/akmd09912
-    class main
-    user compass
-    group compass misc input
-    disabled
-
 service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class core
     user root
@@ -554,9 +547,6 @@ on property:init.svc.per_mgr=running
 
 on property:sys.shutdown.requested=*
     stop per_proxy
-
-on property:ro.hw.ecompass=true
-    enable ecompassd
 
 service config_bt_addr /system/bin/btnvtool -O
     class core
