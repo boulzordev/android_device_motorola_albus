@@ -24,6 +24,12 @@ av.offload.enable=false
 av.debug.disable.pers.cache=1
 persist.audio.endcall.delay=250
 qcom.hw.aac.encoder=false
+persist.audio.default.acc=228868
+persist.speaker.prot.enable=false
+voice.conc.fallbackpath=deep-buffer
+voice.playback.conc.disabled=true
+voice.record.conc.disabled=false
+voice.voip.conc.disabled=true
 
 persist.audio.calfile0=/etc/acdbdata/Bluetooth_cal.acdb
 persist.audio.calfile1=/etc/acdbdata/General_cal.acdb
@@ -53,15 +59,13 @@ camera.disable_zsl_mode=1
 camera.display.umax=1920x1080
 camera.display.lmax=1280x720
 camera.hal1.packagelist=com.skype.raider,com.google.android.talk
-camera.mot.startup_probing=0
-persist.camera.debug.logfile=0
-persist.camera.gyro.disable=0
 
 vidc.dec.downscalar_width=1920
 vidc.dec.downscalar_height=1088
 vidc.dec.disable.split.cpu=1
 vidc.enc.dcvs.extra-buff-count=2
 vidc.enc.disable_bframes=1
+vidc.enc.disable_pframes=1
 vidc.disable.split.mode=1
 vidc.enc.disable.pq=true
 
@@ -120,7 +124,7 @@ persist.radio.RATE_ADAPT_ENABLE=1
 persist.radio.VT_ENABLE=1
 persist.radio.VT_HYBRID_ENABLE=1
 persist.radio.VT_USE_MDM_TIME=0
-persist.ims.disableADBLogs=2
+persist.ims.disableADBLogs=0
 persist.ims.disableDebugLogs=0
 persist.ims.disableIMSLogs=0
 persist.ims.disableQXDMLogs=0
@@ -129,7 +133,7 @@ persist.ims.volte=true
 persist.ims.vt=false
 persist.ims.vt.epdg=false
 persist.mm.sta.enable=0
-persist.vt.supported=0
+persist.vt.supported=1
 
 # Media
 media.aac_51_output_enabled=true
@@ -181,27 +185,39 @@ persist.radio.snapshot_enabled=1
 persist.radio.call.audio.output=0
 persist.eab.supported=0
 persist.mot.gps.conf.from.sim=true
-persist.net.doxlat=true
 persist.radio.REVERSE_QMI=0
 persist.radio.ROTATION_ENABLE=1
 persist.radio.adb_log_on=0
 persist.radio.calls.on.ims=true
 persist.radio.domain.ps=0
-persist.radio.eons.enabled=false
-persist.radio.ril_payload_on=0
 persist.radio.sar_sensor=1
-persist.radio.sglte_target=0
 persist.radio.sib16_support=1
-persist.rcs.presence.provision=0
-persist.rcs.supported=0
 persist.rmnet.mux=enabled
+persist.qfp=false
 ro.telephony.call_ring.multiple=false
+persist.radio.adam=true
+ro.radio.imei.sv=2
 
 ro.use_data_netmgrd=true
 persist.data.qmi.adb_logmask=0
 persist.data.netmgrd.qos.enable=true
 persist.data.mode=concurrent
 persist.data.iwlan.enable=true
+persist.mot.gps.smart_battery=1
+
+# Sensors
+ro.hardware.sensors=albus
+ro.qti.sdk.sensors.gestures=false
+ro.qti.sensors.amd=false
+ro.qti.sensors.cmc=false
+ro.qti.sensors.facing=false
+ro.qti.sensors.mot_detect=true
+ro.qti.sensors.pedometer=false
+ro.qti.sensors.pmd=false
+ro.qti.sensors.rmd=false
+ro.qti.sensors.scrn_ortn=false
+ro.qti.sensors.sta_detect=true
+ro.sensors.tof.interval_ms=5000
 
 # USB
 ro.usb.mtp=0x2e82
