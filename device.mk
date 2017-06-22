@@ -244,10 +244,6 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     ueventd.qcom.rc
 
-# Releasetools script
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/check_features.sh:install/bin/check_features.sh
-
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
