@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
-# Inherit from potter device
-$(call inherit-product, device/motorola/potter/device.mk)
+# Inherit from albus device
+$(call inherit-product, device/motorola/albus/device.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := potter
-PRODUCT_NAME := full_potter
+PRODUCT_DEVICE := albus
+PRODUCT_NAME := full_albus
