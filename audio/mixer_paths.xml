@@ -1206,13 +1206,8 @@
 		<ctl name="Mods Set Capture Use Case" value="Raw" />
 	</path>
 
-	<path name="mod-mic-ambisonic">
-		<!-- GB_AUDIO_DEVICE_IN_CAMCORDER_MIC -->
-		<ctl name="Mods Enable Input Devices" value="4" />
-		<ctl name="Mods Set Capture Use Case" value="Ambisonic" />
-	</path>
-
 	<path name="mod-camcorder">
+	<!-- seems redundant that camcorder is both a device and a usecase -->
 		<!-- GB_AUDIO_DEVICE_IN_CAMCORDER_MIC -->
 		<ctl name="Mods Enable Input Devices" value="4" />
 		<ctl name="Mods Set Capture Use Case" value="Camcorder" />

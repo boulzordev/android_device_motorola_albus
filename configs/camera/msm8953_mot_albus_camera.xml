@@ -165,7 +165,6 @@ LensInfo : Information of the lens present in the module.
     <EepromName>ov5695</EepromName>
     <FlashName>pmic</FlashName>
     <ChromatixName>mot_ov5695_chromatix</ChromatixName>
-    <AltChromatixName>mot_ov5695_ofilm_chromatix</AltChromatixName>
     <ModesSupported>1</ModesSupported>
     <Position>FRONT</Position>
     <MountAngle>270</MountAngle>
