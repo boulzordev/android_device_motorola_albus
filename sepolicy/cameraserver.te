@@ -1,2 +1,0 @@
-# Shouldn't do this here
-allow cameraserver self:netlink_kobject_uevent_socket { read bind create setopt };
