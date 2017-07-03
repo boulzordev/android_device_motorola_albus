@@ -22,8 +22,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # for specific
 $(call inherit-product, vendor/motorola/albus/albus-vendor.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common AOKP stuff.
+$(call inherit-product, vendor/aokp/configs/common_full_phone.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
@@ -31,9 +31,9 @@ TARGET_SCREEN_HEIGHT := 1920
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := albus
-PRODUCT_NAME := lineage_albus
-PRODUCT_BRAND := motorola
-PRODUCT_MANUFACTURER := motorola
+PRODUCT_NAME := aokp_albus
+PRODUCT_BRAND := Motorola
+PRODUCT_MANUFACTURER := Motorola
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
 
