@@ -155,7 +155,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Sensor
-USE_SENSOR_MULTI_HAL := true
+# USE_SENSOR_MULTI_HAL := true
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
