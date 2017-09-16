@@ -242,6 +242,8 @@ ro.qti.sensors.scrn_ortn=false
 ro.qti.sensors.sta_detect=true
 ro.sensors.tof.interval_ms=5000
 
+ro.sys.sdcardfs=false
+
 # USB
 ro.usb.bpt=2ee5
 ro.usb.bpt_adb=2ee6
