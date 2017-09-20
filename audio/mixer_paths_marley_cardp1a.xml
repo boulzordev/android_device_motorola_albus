@@ -128,6 +128,7 @@
 	<ctl name="SLIM_5_RX Channels" value="One" />
 	<ctl name="SLIM_0_TX Channels" value="One" />
 	<ctl name="SLIM_1_TX Channels" value="Two" />
+	<ctl name="SLIM_0_TX Format" value="S16_LE" />
 	<ctl name="PRI_MI2S_RX Audio Mixer MultiMedia4" value="0" />
 	<ctl name="Voice_Tx Mixer QUIN_MI2S_TX_Voice" value="0" />
 	<ctl name="Voice2_Tx Mixer QUIN_MI2S_TX_Voice2" value="0" />
@@ -361,6 +362,14 @@
 	<!-- afe-proxy -->
 	<ctl name="AFE_PCM_RX Audio Mixer MultiMedia2" value="0" />
 	<!-- afe-proxy end-->
+
+	<path name="set-capture-format-default">
+		<ctl name="SLIM_0_TX Format" value="S16_LE" />
+	</path>
+
+	<path name="set-capture-format-24le">
+		<ctl name="SLIM_0_TX Format" value="S24_LE" />
+	</path>
 
 	<!-- These are audio route (FE to BE) specific mixer settings -->
 	<path name="deep-buffer-playback">
@@ -850,8 +859,8 @@
 		<ctl name="OUT1L Input 1" value="ISRC2INT1" />
 		<ctl name="ISRC2INT2 Input" value="SLIMRX6" />
 		<ctl name="OUT1R Input 1" value="ISRC2INT2" />
-		<ctl name="OUT1 Digital Volume" id="0" value="116" />
-		<ctl name="OUT1 Digital Volume" id="1" value="116" />
+		<ctl name="OUT1 Digital Volume" id="0" value="114" />
+		<ctl name="OUT1 Digital Volume" id="1" value="114" />
 		<ctl name="OUT1 Digital Switch" id="0" value="1" />
 		<ctl name="OUT1 Digital Switch" id="1" value="1" />
 	</path>
@@ -860,7 +869,7 @@
 		<path name="headphones" />
 		<ctl name="OUT1 Digital Volume" id="0" value="128" />
 		<ctl name="OUT1 Digital Volume" id="1" value="128" />
-		</path>
+	</path>
 
 	<path name="headset-mic">
 		<path name="AOV" />
@@ -896,6 +905,10 @@
 		<path name="speaker" />
 	</path>
 
+	<path name="voice-speaker-hfp">
+		<path name="voice-speaker" />
+	</path>
+
 	<path name="voice-speaker-mic">
 		<path name="speaker-mic" />
 	</path>
@@ -927,8 +940,8 @@
 		<ctl name="OUT1L Input 1" value="ISRC2INT1" />
 		<ctl name="ISRC2INT2 Input" value="SLIMRX2" />
 		<ctl name="OUT1R Input 1" value="ISRC2INT2" />
-		<ctl name="OUT1 Digital Volume" id="0" value="98" />
-		<ctl name="OUT1 Digital Volume" id="1" value="98" />
+		<ctl name="OUT1 Digital Volume" id="0" value="109" />
+		<ctl name="OUT1 Digital Volume" id="1" value="109" />
 		<ctl name="OUT1 Digital Switch" id="0" value="1" />
 		<ctl name="OUT1 Digital Switch" id="1" value="1" />
 	</path>
@@ -1001,6 +1014,10 @@
 
 	<path name="voice-speaker-dmic-ef">
 		<path name="speaker-dmic-endfire" />
+	</path>
+
+	<path name="voice-speaker-mic-hfp">
+		<path name="voice-speaker-dmic-ef" />
 	</path>
 
 	<path name="voice-rec-dmic-ef">
@@ -1178,9 +1195,8 @@
 	</path>
 
 	<path name="mod-voice-mic">
+		<path name="mod-mic" />
 		<ctl name="Mods Set Capture Use Case" value="Voice" />
-		<!-- GB_AUDIO_DEVICE_IN_MIC_ECNS -->
-		<ctl name="Mods Enable Input Devices" value="64" />
 	</path>
 
 	<path name="mod-mic-ec">
@@ -1189,8 +1205,20 @@
 		<ctl name="Mods Enable Input Devices" value="32" />
 	</path>
 
+	<path name="mod-mic-voice-rec-ec">
+		<ctl name="Mods Set Capture Use Case" value="Voice-Rec" />
+		<!-- GB_AUDIO_DEVICE_IN_MIC_EC -->
+		<ctl name="Mods Enable Input Devices" value="32" />
+	</path>
+
 	<path name="mod-mic-ns">
 		<ctl name="Mods Set Capture Use Case" value="Voice" />
+		<!-- GB_AUDIO_DEVICE_IN_MIC_NS -->
+		<ctl name="Mods Enable Input Devices" value="128" />
+	</path>
+
+	<path name="mod-mic-voice-rec-ns">
+		<ctl name="Mods Set Capture Use Case" value="Voice-Rec" />
 		<!-- GB_AUDIO_DEVICE_IN_MIC_NS -->
 		<ctl name="Mods Enable Input Devices" value="128" />
 	</path>
@@ -1206,8 +1234,18 @@
 		<ctl name="Mods Set Capture Use Case" value="Raw" />
 	</path>
 
+	<path name="mod-mic-voice-rec">
+		<path name="mod-mic" />
+		<ctl name="Mods Set Capture Use Case" value="Voice-Rec" />
+	</path>
+
+	<path name="mod-mic-ambisonic">
+		<!-- GB_AUDIO_DEVICE_IN_CAMCORDER_MIC -->
+		<ctl name="Mods Enable Input Devices" value="4" />
+		<ctl name="Mods Set Capture Use Case" value="Ambisonic" />
+	</path>
+
 	<path name="mod-camcorder">
-	<!-- seems redundant that camcorder is both a device and a usecase -->
 		<!-- GB_AUDIO_DEVICE_IN_CAMCORDER_MIC -->
 		<ctl name="Mods Enable Input Devices" value="4" />
 		<ctl name="Mods Set Capture Use Case" value="Camcorder" />
@@ -1231,5 +1269,10 @@
 	<path name="mod-headset-mic-raw">
 		<path name="mod-headset-mic" />
 		<ctl name="Mods Set Capture Use Case" value="Raw" />
+	</path>
+
+	<path name="mod-headset-mic-voice-rec">
+		<path name="mod-headset-mic" />
+		<ctl name="Mods Set Capture Use Case" value="Voice-Rec" />
 	</path>
 </mixer>
