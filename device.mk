@@ -80,7 +80,6 @@ PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/vendor/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
-    $(LOCAL_PATH)/audio/audio_platform_info_extcodec.xml:system/vendor/etc/audio_platform_info_extcodec.xml \
     $(LOCAL_PATH)/audio/mixer_paths.xml:system/vendor/etc/mixer_paths.xml \
     $(LOCAL_PATH)/audio/audio_ext_spkr.conf:system/vendor/etc/audio_ext_spkr.conf \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/vendor/etc/audio_platform_info.xml \
@@ -228,8 +227,7 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_boe_1080p_520.xml:system/etc/qdcm_calib_data_mipi_mot_vid_boe_1080p_520.xml \
-    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_tianma_1080p_520.xml:system/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_520.xml
+    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_cmd_smd_1080p_549_alb.xml:system/etc/qdcm_calib_data_mipi_mot_cmd_smd_1080p_549_alb.xml
 
 # Media
 PRODUCT_PACKAGES += \
