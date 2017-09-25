@@ -230,17 +230,6 @@ persist.mot.gps.smart_battery=1
 
 # Sensors
 ro.hardware.sensors=albus
-ro.qti.sdk.sensors.gestures=false
-ro.qti.sensors.amd=false
-ro.qti.sensors.cmc=false
-ro.qti.sensors.facing=false
-ro.qti.sensors.mot_detect=true
-ro.qti.sensors.pedometer=false
-ro.qti.sensors.pmd=false
-ro.qti.sensors.rmd=false
-ro.qti.sensors.scrn_ortn=false
-ro.qti.sensors.sta_detect=true
-ro.sensors.tof.interval_ms=5000
 
 ro.sys.sdcardfs=false
 
