@@ -232,8 +232,7 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service.widevine
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_boe_1080p_520.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_vid_boe_1080p_520.xml \
-    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_tianma_1080p_520.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_520.xml
+    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_cmd_smd_1080p_549_alb.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_cmd_smd_1080p_549_alb.xml
 
 # Media
 PRODUCT_PACKAGES += \
@@ -241,9 +240,13 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/vendor/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_codecs_8953_v1.xml:system/vendor/etc/media_codecs_8953_v1.xml \
     $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/vendor/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance_8953_v1.xml:system/vendor/etc/media_codecs_performance_8953_v1.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/vendor/etc/media_profiles_vendor.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_profiles_8953_v1.xml:system/vendor/etc/media_profiles_8953_v1.xml \
+    $(LOCAL_PATH)/configs/media_profiles_rc.xml:system/vendor/etc/media_profiles_rc.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/vendor/etc/media_codecs_google_audio.xml \
