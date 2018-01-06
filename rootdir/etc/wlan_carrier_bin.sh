@@ -1,17 +1,17 @@
 #!/system/bin/sh
-carrier=`getprop ro.boot.carrier`
+carrier=`getprop ro.carrier`
 
 case "$carrier" in
     "retbr" | "timbr" | "tefbr" | "oibr" | "amxbr" | "niibr")
-        echo -n wlan/prima/WCNSS_qcom_wlan_nv_Brazil.bin > /sys/module/wcnsscore/parameters/nv_file
+        echo -n bdwlan30_bra.bin > /sys/module/cnss_pci/parameters/regulatory_file
     ;;
     "perar" | "retar" | "tefar" | "amxar")
-        echo -n wlan/prima/WCNSS_qcom_wlan_nv_Argentina.bin > /sys/module/wcnsscore/parameters/nv_file
+        echo -n bdwlan30_arg.bin > /sys/module/cnss_pci/parameters/regulatory_file
     ;;
     "retin" | "amzin")
-        echo -n wlan/prima/WCNSS_qcom_wlan_nv_India.bin > /sys/module/wcnsscore/parameters/nv_file
+        echo -n bdwlan30_ind.bin > /sys/module/cnss_pci/parameters/regulatory_file
     ;;
     * )
-        echo -n wlan/prima/WCNSS_qcom_wlan_nv.bin > /sys/module/wcnsscore/parameters/nv_file
+        echo -n bdwlan30.bin > /sys/module/cnss_pci/parameters/regulatory_file
     ;;
 esac

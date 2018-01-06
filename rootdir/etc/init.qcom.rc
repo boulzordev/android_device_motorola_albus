@@ -37,7 +37,6 @@ on early-init
     mkdir /dsp 0771 media media
     chown root system /dev/kmsg
     chmod 0620 /dev/kmsg
-
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
@@ -59,7 +58,8 @@ on fs
 on init
     # Symbols required for motorola blobs
     export LD_SHIM_LIBS /system/vendor/lib/lib-imsvt.so|libshim_ims.so:/system/vendor/bin/adspd|libshim_adsp.so:/system/vendor/lib/libril-qc-qmi-1.so|rild_socket.so:/system/lib/libandroid.so|libshim_ril.so:/system/lib/lib_motsensorlistener.so|libsensor.so:/system/lib/libjustshoot.so|libshims_camera.so:/system/lib/hw/camera.msm8953.so|libshim_camera_hal.so
-
+ 
+ 
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
     # Set permissions for persist partition
@@ -127,6 +127,10 @@ on boot
     chown radio radio /data/misc/radio/copy_complete
     chmod 0660 /data/misc/radio/copy_complete
 
+    # copy prebuilt qcril.db files always
+    copy /system/vendor/qcril.db /data/misc/radio/qcril_prebuilt.db
+    chown radio radio /data/misc/radio/qcril_prebuilt.db
+    chmod 0660 /data/misc/radio/qcril_prebuilt.db
     # File flags for prebuilt ril db file
     write /data/misc/radio/prebuilt_db_support 1
     chown radio radio /data/misc/radio/prebuilt_db_support
@@ -209,10 +213,10 @@ on boot
     chown system system /sys/homebutton/enable
     chown system system /sys/homebutton/enable_off
     chown system system /sys/homebutton/haptic
-    chown system system /sys/homebutton/haptic_off
-    chown system system /sys/homebutton/proximity_check_off 
     chown system system /sys/homebutton/key
     chown system system /sys/homebutton/key_hold
+    chown system system /sys/homebutton/haptic_off
+    chown system system /sys/homebutton/proximity_check_off 
     chown system system /sys/homebutton/key_dbltap
     chown system system /sys/homebutton/key_left
     chown system system /sys/homebutton/key_right
@@ -555,13 +559,6 @@ service adsprpcd /system/vendor/bin/adsprpcd
     user media
     group media
 
-# Start AKM executable
-service ecompassd /system/vendor/bin/akmd09912
-    class main
-    user compass
-    group compass misc input
-    disabled
-
 service irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
     class core
     user root
@@ -664,9 +661,6 @@ on property:init.svc.per_mgr=running
 
 on property:sys.shutdown.requested=*
     stop per_proxy
-
-on property:ro.hw.ecompass=true
-    enable ecompassd
 
 service config_bt_addr /system/vendor/bin/btnvtool -O
     class core
@@ -1015,6 +1009,8 @@ on property:sys.boot_completed=1
     write /sys/block/dm-1/queue/read_ahead_kb 128
     write /sys/block/mmcblk0rpmb/bdi/read_ahead_kb 128
     write /sys/block/mmcblk0rpmb/queue/read_ahead_kb 128
-    
+
     #WDSP FW boot sysfs node used by STHAL
     chown media audio /sys/kernel/wdsp0/boot
+    #CPE fw_name used by sound trigger HAL
+    chown media audio /sys/kernel/wcd_cpe0/fw_name
