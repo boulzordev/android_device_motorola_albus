@@ -1,7 +1,9 @@
 [
   {
-    "repository":  "android_kernel_motorola_msm8996",
-    "target_path": "kernel/motorola/albus"
+    "remote":      "github",
+    "repository":  "boulzordev/android_kernel_motorola_msm8953",
+    "target_path": "kernel/motorola/msm8953",
+    "revision":    "lineage-15.1-64"
   },
   {
     "remote":      "github",
